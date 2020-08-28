@@ -7,6 +7,7 @@
     </div>
     <div class="container">
       <demo-bar1 />
+      <demo-bar2 />
     </div>
   </div>
 </template>
@@ -15,12 +16,14 @@
 import DemoPie1 from '@/demo/demo-pie1'
 import DemoPie2 from '@/demo/demo-pie2'
 import DemoBar1 from '@/demo/demo-bar1'
+import DemoBar2 from '@/demo/demo-bar2'
 export default {
   name: 'app',
   components: {
     DemoPie1,
     DemoPie2,
-    DemoBar1
+    DemoBar1,
+    DemoBar2
   }
 }
 </script>
