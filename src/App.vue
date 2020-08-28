@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <demo-pie />
+    <demo-pie1 />
+    <demo-pie2 />
   </div>
 </template>
 
 <script>
-import DemoPie from '@/demo/demo-pie'
+import DemoPie1 from '@/demo/demo-pie1'
+import DemoPie2 from '@/demo/demo-pie2'
 export default {
   name: 'app',
   components: {
-    DemoPie
+    DemoPie1,
+    DemoPie2
   }
 }
 </script>

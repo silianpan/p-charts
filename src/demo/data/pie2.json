@@ -1,0 +1,21 @@
+[
+  {
+      "area":"XX市",
+      "year":2020,
+      "govDept":"教育局",
+      "valueUnit":"万元",
+      "subject":"支出总计",
+      "fundType":"支出",
+      "budgetNum":204.72,
+      "faGeneral":204.72
+  },
+  {
+      "area":"XX市",
+      "year":2020,
+      "govDept":"教育局",
+      "valueUnit":"万元",
+      "subject":"收入总计",
+      "fundType":"收入",
+      "budgetNum":204.72
+  }
+]

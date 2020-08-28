@@ -9,28 +9,19 @@
 </template>
 
 <script>
-import PieJson from './data/pie.json'
-
-const valueUnit = '万元'
-const titlePre = '总收入和总支出占比情况'
+import PieJson from './data/pie1.json'
 export default {
-  created() {
-    this.options = {
-      fieldMap: {
-        time: 'year',
-        name: 'budgetSubject',
-        // 统计指标，可以更换
-        value: 'budgetNum'
-      },
-      title: `${titlePre}-预算数（单位：${valueUnit}）`,
-      colorList: ['#1890ff', '#37c661']
-    }
-  },
   data() {
     return {
       PieJson,
       options: {
-        title: `${titlePre}（单位：${valueUnit}）`,
+        fieldMap: {
+          time: 'year',
+          name: 'budgetSubject',
+          // 统计指标，可以更换
+          value: 'budgetNum'
+        },
+        title: `总收入和总支出占比情况-预算数（单位：万元）`,
         colorList: ['#1890ff', '#37c661']
       }
     }
