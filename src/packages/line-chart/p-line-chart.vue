@@ -1,35 +1,31 @@
 <!-- 折线图 -->
 <template>
-  <Card shadow>
-    <p slot="title" class="analysis-card-title" @click="titleClick">{{ newOptions.title }}</p>
+  <div>
+    <p slot="title" class="analysis-card-title" @click="titleClick">
+      {{ newOptions.title }}
+    </p>
     <Spin v-if="loading" fix large></Spin>
     <div :id="containerId" />
-  </Card>
+  </div>
 </template>
 
 <script>
+import _ from 'lodash'
 import CommonUtil from '@/utils/index'
 import G2 from '@antv/g2'
 import DataSet from '@antv/data-set'
 export default {
   name: 'PLineChart',
   props: {
-    // 查询方法
-    queryFunc: {
-      type: Function,
-      default: () => {
-        return () => {}
-      }
-    },
-    // 查询参数
-    queryParams: {
-      type: Object,
-      default: () => {}
-    },
     // 选项
     options: {
       type: Object,
       default: () => {}
+    },
+    // 数据
+    data: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -83,7 +79,7 @@ export default {
   },
   mounted() {
     this.newOptions = { ...this.defaultOptions, ...this.options }
-    this.queryData()
+    this.initData()
   },
   beforeDestroy() {
     if (this.chart !== null) {
@@ -91,13 +87,6 @@ export default {
     }
   },
   watch: {
-    // 监听查询参数
-    queryParams: {
-      handler(newVal, oldVal) {
-        this.queryData()
-      },
-      deep: true
-    },
     options: {
       handler(newVal, oldVal) {
         if (this.chart !== null) {
@@ -105,41 +94,38 @@ export default {
           this.chart = null
         }
         this.newOptions = { ...this.defaultOptions, ...this.options }
-        this.queryData()
+        this.initData()
       },
       deep: true
     }
   },
   methods: {
-    async queryData() {
-      if (this.$_.isEmpty(this.queryParams)) {
+    async initData() {
+      if (_.isEmpty(this.data)) {
         return
       }
       this.loading = true
-      const res = await this.queryFunc(this.queryParams)
       try {
-        if (res && res.ok()) {
-          if (this.chart !== null) {
-            const valueOp = this.newOptions.fieldMap.value
-            const ds = new DataSet()
-            const dv = ds.createView().source(res.data)
-            dv.transform({
-              type: 'map',
-              callback(row) {
-                if (
-                  row[valueOp] === null ||
-                  row[valueOp] === undefined ||
-                  isNaN(row[valueOp])
-                ) {
-                  row[valueOp] = 0
-                }
-                return row
+        if (this.chart !== null) {
+          const valueOp = this.newOptions.fieldMap.value
+          const ds = new DataSet()
+          const dv = ds.createView().source(this.data)
+          dv.transform({
+            type: 'map',
+            callback(row) {
+              if (
+                row[valueOp] === null ||
+                row[valueOp] === undefined ||
+                isNaN(row[valueOp])
+              ) {
+                row[valueOp] = 0
               }
-            })
-            this.chart.changeData(dv)
-          } else {
-            this.initChart(res.data)
-          }
+              return row
+            }
+          })
+          this.chart.changeData(dv)
+        } else {
+          this.initChart(this.data)
         }
       } catch (err) {
         console.log(err)
@@ -239,8 +225,7 @@ export default {
             }
           }
         )
-      this.chart.on('point:click', ev => {
-      })
+      this.chart.on('point:click', ev => {})
       this.chart.render()
     },
     titleClick() {

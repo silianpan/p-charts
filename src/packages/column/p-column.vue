@@ -1,35 +1,31 @@
 <!-- 柱状图 -->
 <template>
-  <Card shadow>
+  <div>
     <Spin v-if="loading" fix large></Spin>
-    <p slot="title" class="analysis-card-title" @click="titleClick">{{ newOptions.title }}</p>
+    <p slot="title" class="analysis-card-title" @click="titleClick">
+      {{ newOptions.title }}
+    </p>
     <div :id="containerId" />
-  </Card>
+  </div>
 </template>
 
 <script>
+import _ from 'lodash'
 import CommonUtil from '@/utils/index'
 import G2 from '@antv/g2'
 import DataSet from '@antv/data-set'
 export default {
   name: 'PColumn',
   props: {
-    // 查询方法
-    queryFunc: {
-      type: Function,
-      default: () => {
-        return () => {}
-      }
-    },
-    // 查询参数
-    queryParams: {
-      type: Object,
-      default: () => {}
-    },
     // 选项
     options: {
       type: Object,
       default: () => {}
+    },
+    // 数据
+    data: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
@@ -77,7 +73,7 @@ export default {
   },
   mounted() {
     this.newOptions = { ...this.defaultOptions, ...this.options }
-    this.queryData()
+    this.initData()
   },
   beforeDestroy() {
     if (this.chart !== null) {
@@ -85,13 +81,6 @@ export default {
     }
   },
   watch: {
-    // 监听查询参数
-    queryParams: {
-      handler(newVal, oldVal) {
-        this.queryData()
-      },
-      deep: true
-    },
     options: {
       handler(newVal, oldVal) {
         if (this.chart !== null) {
@@ -99,53 +88,54 @@ export default {
           this.chart = null
         }
         this.newOptions = { ...this.defaultOptions, ...this.options }
-        this.queryData()
+        this.initData()
       },
       deep: true
     }
   },
   methods: {
-    async queryData() {
-      if (this.$_.isEmpty(this.queryParams)) {
+    initData() {
+      if (_.isEmpty(this.data)) {
         return
       }
       this.loading = true
-      const res = await this.queryFunc(this.queryParams)
       try {
-        if (res && res.ok()) {
-          if (this.chart !== null) {
-            const nameOp = this.newOptions.fieldMap.name
-            const timeOp = this.newOptions.fieldMap.time
-            const valueOp = this.newOptions.fieldMap.value
-            const foldFieldsOp = this.newOptions.foldFields
-            const foldFieldsRenameOp = this.newOptions.foldFieldsRename
-            const ds = new DataSet()
-            const dv = ds.createView().source(res.data)
-            if (foldFieldsOp) {
-              dv.transform({
-                type: 'fold',
-                fields: foldFieldsOp,
-                key: this.newOptions.fieldMap[this.newOptions.itemField],
-                value: valueOp
-              })
-            }
+        if (this.chart !== null) {
+          const nameOp = this.newOptions.fieldMap.name
+          const timeOp = this.newOptions.fieldMap.time
+          const valueOp = this.newOptions.fieldMap.value
+          const foldFieldsOp = this.newOptions.foldFields
+          const foldFieldsRenameOp = this.newOptions.foldFieldsRename
+          const ds = new DataSet()
+          const dv = ds.createView().source(this.data)
+          if (foldFieldsOp) {
             dv.transform({
-              type: 'map',
-              callback(row) {
-                // 加工数据后返回新的一行，默认返回行数据本身
-                row[nameOp] = row[nameOp] + ''
-                row[timeOp] = foldFieldsRenameOp ? foldFieldsRenameOp[row[timeOp] + ''] : row[timeOp] + ''
-                row[valueOp] =
-                  row[valueOp] === undefined || row[valueOp] === null || isNaN(row[valueOp])
-                    ? 0
-                    : row[valueOp]
-                return row
-              }
+              type: 'fold',
+              fields: foldFieldsOp,
+              key: this.newOptions.fieldMap[this.newOptions.itemField],
+              value: valueOp
             })
-            this.chart.changeData(dv)
-          } else {
-            this.initChart(res.data)
           }
+          dv.transform({
+            type: 'map',
+            callback(row) {
+              // 加工数据后返回新的一行，默认返回行数据本身
+              row[nameOp] = row[nameOp] + ''
+              row[timeOp] = foldFieldsRenameOp
+                ? foldFieldsRenameOp[row[timeOp] + '']
+                : row[timeOp] + ''
+              row[valueOp] =
+                row[valueOp] === undefined ||
+                row[valueOp] === null ||
+                isNaN(row[valueOp])
+                  ? 0
+                  : row[valueOp]
+              return row
+            }
+          })
+          this.chart.changeData(dv)
+        } else {
+          this.initChart(this.data)
         }
       } catch (error) {
         this.loading = false
@@ -175,7 +165,9 @@ export default {
         callback(row) {
           // 加工数据后返回新的一行，默认返回行数据本身
           row[nameOp] = row[nameOp] + ''
-          row[timeOp] = foldFieldsRenameOp ? foldFieldsRenameOp[row[timeOp] + ''] : row[timeOp] + ''
+          row[timeOp] = foldFieldsRenameOp
+            ? foldFieldsRenameOp[row[timeOp] + '']
+            : row[timeOp] + ''
           row[valueOp] =
             row[valueOp] === undefined || row[valueOp] === null
               ? 0
@@ -234,7 +226,7 @@ export default {
         .adjust(this.newOptions.adjustProps)
         .color(
           this.newOptions.fieldMap[this.newOptions.itemField],
-          this.$_.isEmpty(this.newOptions.colorList)
+          _.isEmpty(this.newOptions.colorList)
             ? null
             : this.newOptions.colorList
         )
