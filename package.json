@@ -10,7 +10,9 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "@antv/data-set": "^0.11.4",
+    "@antv/g2": "^3.5.17"
   },
   "browserslist": [
     "> 1%",
