@@ -1,7 +1,9 @@
 import PPie from './packages/pie/index'
 import PBar from './packages/bar/index'
+import PColumn from './packages/column/index'
+import PLineChart from './packages/line-chart/index'
 
-const components = [PPie, PBar]
+const components = [PPie, PBar, PColumn, PLineChart]
 
 const install = function(Vue, opts = {}) {
   components.map(component => {
@@ -16,5 +18,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  PPie
+  PPie,
+  PBar,
+  PColumn,
+  PLineChart
 }
