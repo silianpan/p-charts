@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <demo-pie1 />
-    <demo-pie2 />
+    <h1>p-charts</h1>
+    <div class="container">
+      <demo-pie1 />
+      <demo-pie2 />
+    </div>
   </div>
 </template>
 
@@ -25,5 +28,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, 50%);
 }
 </style>
