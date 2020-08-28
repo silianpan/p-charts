@@ -85,7 +85,6 @@ export default {
   },
   methods: {
     initData() {
-      console.log('data', this.data)
       if (_.isEmpty(this.data)) {
         return
       }

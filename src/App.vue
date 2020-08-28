@@ -5,17 +5,22 @@
       <demo-pie1 />
       <demo-pie2 />
     </div>
+    <div class="container">
+      <demo-bar1 />
+    </div>
   </div>
 </template>
 
 <script>
 import DemoPie1 from '@/demo/demo-pie1'
 import DemoPie2 from '@/demo/demo-pie2'
+import DemoBar1 from '@/demo/demo-bar1'
 export default {
   name: 'app',
   components: {
     DemoPie1,
-    DemoPie2
+    DemoPie2,
+    DemoBar1
   }
 }
 </script>

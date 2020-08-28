@@ -1,6 +1,7 @@
 import PPie from './packages/pie/index'
+import PBar from './packages/bar/index'
 
-const components = [PPie]
+const components = [PPie, PBar]
 
 const install = function(Vue, opts = {}) {
   components.map(component => {
