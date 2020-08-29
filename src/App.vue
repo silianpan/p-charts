@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <h1>p-charts</h1>
+    <div class="doc"><a href="https://juejin.im/post/6866330015970099208/" target="_blank">文档(Document)</a></div>
+    <div class="doc"><a href="http://silianpan.cn/index.php/2020/08/29/p-charts/" target="_blank">博客(Blog)</a></div>
     <h2>饼图（pie）</h2>
     <div class="container">
       <demo-pie1 />
@@ -61,5 +63,10 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(2, 50%);
+}
+
+.doc {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 </style>
