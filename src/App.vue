@@ -1,17 +1,21 @@
 <template>
   <div id="app">
     <h1>p-charts</h1>
+    <h2>饼图（pie）</h2>
     <div class="container">
       <demo-pie1 />
       <demo-pie2 />
     </div>
+    <h2>条形图（bar）</h2>
     <div class="container">
       <demo-bar1 />
       <demo-bar2 />
     </div>
+    <h2>柱状图（column）</h2>
     <demo-column1 />
     <demo-column2 />
     <demo-column3 />
+    <h2>折线图（line）</h2>
     <demo-line-chart1 />
     <demo-line-chart2 />
   </div>
