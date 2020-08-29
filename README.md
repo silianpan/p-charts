@@ -2,6 +2,10 @@
 
 > Chart components based on AntV G2
 
+[Document](https://juejin.im/post/6866330015970099208/)
+
+[blog](http://silianpan.cn/index.php/2020/08/29/p-charts/)
+
 [Examples](http://silianpan.cn/p-charts)
 
 ## Getting Started
