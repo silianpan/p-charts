@@ -9,6 +9,9 @@
       <demo-bar1 />
       <demo-bar2 />
     </div>
+    <demo-column1 />
+    <demo-column2 />
+    <demo-column3 />
   </div>
 </template>
 
@@ -17,13 +20,19 @@ import DemoPie1 from '@/demo/demo-pie1'
 import DemoPie2 from '@/demo/demo-pie2'
 import DemoBar1 from '@/demo/demo-bar1'
 import DemoBar2 from '@/demo/demo-bar2'
+import DemoColumn1 from '@/demo/demo-column1'
+import DemoColumn2 from '@/demo/demo-column2'
+import DemoColumn3 from '@/demo/demo-column3'
 export default {
   name: 'app',
   components: {
     DemoPie1,
     DemoPie2,
     DemoBar1,
-    DemoBar2
+    DemoBar2,
+    DemoColumn1,
+    DemoColumn2,
+    DemoColumn3
   }
 }
 </script>
