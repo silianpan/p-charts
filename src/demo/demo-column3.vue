@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import CommonUtil from '@/utils/index'
 import columnJson from './data/column3.json'
 export default {
   data() {

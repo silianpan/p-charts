@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import CommonUtil from '@/utils/index'
 import barJson from './data/bar1.json'
 export default {
   data() {
