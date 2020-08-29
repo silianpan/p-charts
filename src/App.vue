@@ -12,6 +12,7 @@
     <demo-column1 />
     <demo-column2 />
     <demo-column3 />
+    <demo-line-chart1 />
   </div>
 </template>
 
@@ -23,6 +24,7 @@ import DemoBar2 from '@/demo/demo-bar2'
 import DemoColumn1 from '@/demo/demo-column1'
 import DemoColumn2 from '@/demo/demo-column2'
 import DemoColumn3 from '@/demo/demo-column3'
+import DemoLineChart1 from '@/demo/demo-line-chart1'
 export default {
   name: 'app',
   components: {
@@ -32,7 +34,8 @@ export default {
     DemoBar2,
     DemoColumn1,
     DemoColumn2,
-    DemoColumn3
+    DemoColumn3,
+    DemoLineChart1
   }
 }
 </script>

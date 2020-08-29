@@ -100,7 +100,7 @@ export default {
     }
   },
   methods: {
-    async initData() {
+    initData() {
       if (_.isEmpty(this.data)) {
         return
       }
@@ -185,7 +185,7 @@ export default {
         )
         .color(
           this.newOptions.fieldMap[this.newOptions.itemField],
-          this.$_.isEmpty(this.newOptions.colorList)
+          _.isEmpty(this.newOptions.colorList)
             ? null
             : this.newOptions.colorList
         )
@@ -205,7 +205,7 @@ export default {
         )
         .color(
           this.newOptions.fieldMap[this.newOptions.itemField],
-          this.$_.isEmpty(this.newOptions.colorList)
+          _.isEmpty(this.newOptions.colorList)
             ? null
             : this.newOptions.colorList
         )
