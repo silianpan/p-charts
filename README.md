@@ -20,14 +20,6 @@ yarn add p-charts
 // main.js
 import PCharts from 'p-charts'
 Vue.use(PCharts)
-
-// or
-import PCharts from 'p-charts'
-export default {
-  components: {
-    PCharts
-  }
-}
 ```
 
 #### p-pie
