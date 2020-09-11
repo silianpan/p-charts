@@ -1,5 +1,6 @@
 .analysis-card-title {
   text-align: center;
-  /* color: #0050b3!important;
-  cursor: pointer; */
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #2c3e50;
 }
