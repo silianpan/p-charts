@@ -71,8 +71,7 @@ export default {
     this.containerId = `container${CommonUtil.uuid()}`
   },
   mounted() {
-    this.newOptions = { ...this.defaultOptions, ...this.options }
-    this.initData()
+    this.updateData()
   },
   beforeDestroy() {
     if (this.chart !== null) {
@@ -82,17 +81,26 @@ export default {
   watch: {
     options: {
       handler(newVal, oldVal) {
-        if (this.chart !== null) {
-          this.chart.destroy()
-          this.chart = null
-        }
-        this.newOptions = { ...this.defaultOptions, ...this.options }
-        this.initData()
+        this.updateData()
+      },
+      deep: true
+    },
+    data: {
+      handler(newVal, oldVal) {
+        this.updateData()
       },
       deep: true
     }
   },
   methods: {
+    updateData() {
+      if (this.chart !== null) {
+        this.chart.destroy()
+        this.chart = null
+      }
+      this.newOptions = { ...this.defaultOptions, ...this.options }
+      this.initData()
+    },
     initData() {
       if (_.isEmpty(this.data)) {
         return
