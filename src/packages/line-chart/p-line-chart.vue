@@ -56,6 +56,17 @@ export default {
             type: 'line'
           }
         },
+        yFieldProps: {
+          line: {
+            lineWidth: 2,
+            lineDash: [3, 3]
+          },
+          label: {
+            formatter: val => {
+              return val + valueUnitOp
+            }
+          }
+        },
         // 图形颜色列表
         colorList: [],
         // 组合字段（分组字段）
@@ -172,17 +183,7 @@ export default {
           tickInterval: 1
         }
       })
-      this.chart.axis(valueOp, {
-        line: {
-          lineWidth: 2,
-          lineDash: [3, 3]
-        },
-        label: {
-          formatter: val => {
-            return val + valueUnitOp
-          }
-        }
-      })
+      this.chart.axis(valueOp, this.newOptions.yFieldProps)
       this.chart.legend(this.newOptions.legendProps)
       this.chart.tooltip(this.newOptions.tooltipProps)
 

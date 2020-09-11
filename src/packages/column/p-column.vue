@@ -50,6 +50,27 @@ export default {
         tooltipProps: {
           showTitle: false
         },
+        xFieldProps: {
+          label: {
+            textStyle: {
+              rotate: 16
+            }
+          }
+        },
+        yFieldProps: {
+          line: {
+            lineWidth: 2,
+            lineDash: [3, 3]
+          },
+          label: {
+            textStyle: {
+              fill: '#aaaaaa'
+            }
+          },
+          title: {
+            offset: 60
+          }
+        },
         // 图形颜色列表
         colorList: [],
         // 组合字段（分组字段）
@@ -200,27 +221,8 @@ export default {
       if (this.newOptions.scaleProps) {
         this.chart.scale(this.newOptions.scaleProps)
       }
-      this.chart.axis(nameOp, {
-        label: {
-          textStyle: {
-            rotate: 16
-          }
-        }
-      })
-      this.chart.axis(valueOp, {
-        line: {
-          lineWidth: 2,
-          lineDash: [3, 3]
-        },
-        label: {
-          textStyle: {
-            fill: '#aaaaaa'
-          }
-        },
-        title: {
-          offset: 60
-        }
-      })
+      this.chart.axis(nameOp, this.newOptions.xFieldProps)
+      this.chart.axis(valueOp, this.newOptions.yFieldProps)
       this.chart.legend(this.newOptions.legendProps)
       this.chart.tooltip(this.newOptions.tooltipProps)
       this.chart

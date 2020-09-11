@@ -49,6 +49,43 @@ export default {
         tooltipProps: {
           showTitle: false
         },
+        xFieldProps: {
+          label: {
+            textStyle: {
+              fontSize: 12
+            }
+          },
+          tickLine: {
+            alignWithLabel: false,
+            length: 0
+          },
+          line: {
+            lineWidth: 1
+          }
+        },
+        yFieldProps: {
+          label: {
+            textStyle: {
+              fontSize: 12
+            }
+          },
+          line: {
+            lineWidth: 1
+          },
+          grid: {
+            type: 'line',
+            lineStyle: {
+              lineWidth: 1,
+              lineDash: [4, 4]
+            }
+          },
+          title: {
+            offset: 32,
+            textStyle: {
+              fontSize: 12
+            }
+          }
+        },
         // 图形颜色列表
         colorList: [],
         // 组合字段（分组字段）
@@ -162,43 +199,8 @@ export default {
         //   type: 'timeCat'
         // }
       })
-      this.chart.axis(this.newOptions.fieldMap[this.newOptions.groupField], {
-        label: {
-          textStyle: {
-            fontSize: 12
-          }
-        },
-        tickLine: {
-          alignWithLabel: false,
-          length: 0
-        },
-        line: {
-          lineWidth: 1
-        }
-      })
-      this.chart.axis(valueOp, {
-        label: {
-          textStyle: {
-            fontSize: 12
-          }
-        },
-        line: {
-          lineWidth: 1
-        },
-        grid: {
-          type: 'line',
-          lineStyle: {
-            lineWidth: 1,
-            lineDash: [4, 4]
-          }
-        },
-        title: {
-          offset: 32,
-          textStyle: {
-            fontSize: 12
-          }
-        }
-      })
+      this.chart.axis(this.newOptions.fieldMap[this.newOptions.groupField], this.newOptions.xFieldProps)
+      this.chart.axis(valueOp, this.newOptions.yFieldProps)
       this.chart.legend(this.newOptions.legendProps)
       this.chart.tooltip(this.newOptions.tooltipProps)
       this.chart.coord().transpose()
