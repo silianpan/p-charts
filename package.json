@@ -1,7 +1,7 @@
 {
   "name": "p-charts",
   "description": "Chart components based on AntV G2",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "author": "silianpan <liu.pan@silianpan.cn>",
   "license": "MIT",
   "private": false,
@@ -28,6 +28,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.4",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
