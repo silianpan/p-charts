@@ -1,10 +1,10 @@
 <!-- 地图 -->
 <template>
-  <div style="height:580px">
+  <div>
     <p slot="title" class="analysis-card-title" @click="titleClick">
       {{ newOptions.title }}
     </p>
-    <div :id="containerId" />
+    <div :style="`height:${newOptions.containerHeight};position:relative;width:100%`" :id="containerId" />
   </div>
 </template>
 
@@ -33,6 +33,7 @@ export default {
       containerId: '',
       newOptions: {},
       defaultOptions: {
+        containerHeight: '580px',
         chartProps: {
           map: new Mapbox({
             center: [116.2825, 39.9],
@@ -55,9 +56,9 @@ export default {
   },
   created() {
     this.containerId = `container${CommonUtil.uuid()}`
+    this.newOptions = { ...this.defaultOptions, ...this.options }
   },
   mounted() {
-    this.newOptions = { ...this.defaultOptions, ...this.options }
     this.initChart()
   },
   methods: {
@@ -77,7 +78,7 @@ export default {
           depth: 1,
           fill: {
             color: {
-              field: 'NAME_CHN',
+              field: valueOp,
               // values: [
               //   '#feedde',
               //   '#fdd0a2',
@@ -103,7 +104,7 @@ export default {
           popup: {
             enable: true,
             Html: props => {
-              return `<span>${props.NAME_CHN}: ${props[valueOp]}${this.newOptions.valueUnit}</span>`;
+              return `<span>${props.NAME_CHN}: ${props[valueOp] || 0}${this.newOptions.valueUnit}</span>`;
             }
           }
         })

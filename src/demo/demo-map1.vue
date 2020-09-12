@@ -11,8 +11,8 @@ export default {
       options: {
         title: 'xxx区域分布',
         fieldMap: {
-          name: 'name',
-          value: 'value'
+          name: 'province',
+          value: 'num'
         }
       }
     }

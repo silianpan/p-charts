@@ -4,9 +4,7 @@
     <div class="doc"><a href="https://juejin.im/post/6866330015970099208/" target="_blank">文档(Document)</a></div>
     <div class="doc"><a href="http://silianpan.cn/index.php/2020/08/29/p-charts/" target="_blank">博客(Blog)</a></div>
     <h2>地图（map）</h2>
-    <div class="container" style="position:relative">
-      <demo-map1 />
-    </div>
+    <demo-map1 />
     <h2>饼图（pie）</h2>
     <div class="container">
       <demo-pie1 />
