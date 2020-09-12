@@ -32,7 +32,25 @@ export default {
       chart: null,
       containerId: '',
       newOptions: {},
-      defaultOptions: {}
+      defaultOptions: {
+        chartProps: {
+          map: new Mapbox({
+            center: [116.2825, 39.9],
+            pitch: 0,
+            style: 'blank',
+            zoom: 3,
+            minZoom: 0,
+            maxZoom: 10
+          })
+        },
+        // 字段映射
+        fieldMap: {
+          name: 'name',
+          value: 'num'
+        },
+        // 值单位
+        valueUnit: '个'
+      }
     }
   },
   created() {
@@ -46,38 +64,46 @@ export default {
     initChart() {
       const scene = new Scene({
         id: this.containerId,
-        map: new Mapbox({
-          center: [116.2825, 39.9],
-          pitch: 0,
-          style: 'blank',
-          zoom: 3,
-          minZoom: 0,
-          maxZoom: 10
-        })
+        forceFit: true,
+        ...this.newOptions.chartProps
       })
 
+      const nameOp = this.newOptions.fieldMap.name
+      const valueOp = this.newOptions.fieldMap.value
       scene.on('loaded', () => {
         new CountryLayer(scene, {
           data: this.data,
-          joinBy: ['NAME_CHN', 'name'],
+          joinBy: ['NAME_CHN', nameOp],
           depth: 1,
           fill: {
             color: {
               field: 'NAME_CHN',
+              // values: [
+              //   '#feedde',
+              //   '#fdd0a2',
+              //   '#fdae6b',
+              //   '#fd8d3c',
+              //   '#e6550d',
+              //   '#a63603'
+              // ]
               values: [
-                '#feedde',
-                '#fdd0a2',
-                '#fdae6b',
-                '#fd8d3c',
-                '#e6550d',
-                '#a63603'
+                '#e6f7ff',
+                '#bae7ff',
+                '#91d5ff',
+                '#69c0ff',
+                '#40a9ff',
+                '#1890ff',
+                '#096dd9',
+                '#0050b3',
+                '#003a8c',
+                '#002766'
               ]
             }
           },
           popup: {
             enable: true,
             Html: props => {
-              return `<span>${props.NAME_CHN}</span>`;
+              return `<span>${props.NAME_CHN}: ${props[valueOp]}${this.newOptions.valueUnit}</span>`;
             }
           }
         })
