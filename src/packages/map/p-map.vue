@@ -56,10 +56,14 @@ export default {
   },
   created() {
     this.containerId = `container${CommonUtil.uuid()}`
-    this.newOptions = { ...this.defaultOptions, ...this.options }
   },
   mounted() {
-    this.initChart()
+    this.updateData()
+  },
+  beforeDestroy() {
+    if (this.scene !== null) {
+      this.scene.destroy()
+    }
   },
   watch: {
     options: {
