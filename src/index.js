@@ -2,9 +2,10 @@ import PPie from './packages/pie/index'
 import PBar from './packages/bar/index'
 import PColumn from './packages/column/index'
 import PLineChart from './packages/line-chart/index'
+import PMap from './packages/map/index'
 import './assets/common.css'
 
-const components = [PPie, PBar, PColumn, PLineChart]
+const components = [PPie, PBar, PColumn, PLineChart, PMap]
 
 const install = function(Vue, opts = {}) {
   components.map(component => {

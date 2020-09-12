@@ -13,6 +13,9 @@
   "dependencies": {
     "@antv/data-set": "^0.11.4",
     "@antv/g2": "^3.5.17",
+    "@antv/l7": "^2.2.37",
+    "@antv/l7-district": "^2.2.37",
+    "@antv/l7-maps": "^2.2.37",
     "lodash": "^4.17.20",
     "vue": "^2.5.11"
   },
