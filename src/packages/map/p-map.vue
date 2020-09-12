@@ -29,6 +29,7 @@ export default {
   },
   data() {
     return {
+      countryLayer: null,
       scene: null,
       containerId: '',
       newOptions: {},
@@ -63,6 +64,12 @@ export default {
   },
   beforeDestroy() {
     if (this.scene !== null) {
+      const layers = this.scene.getLayers()
+      if (layers !== null && layers !== undefined) {
+        layers.forEach(item => {
+          this.scene.removeLayer(item)
+        })
+      }
       this.scene.destroy()
     }
   },
@@ -75,7 +82,9 @@ export default {
     },
     data: {
       handler(newVal, oldVal) {
-        this.updateData()
+        if (this.countryLayer !== null) {
+          this.countryLayer.setData(newVal)
+        }
       },
       deep: true
     }
@@ -89,23 +98,25 @@ export default {
             this.scene.removeLayer(item)
           })
         }
-        this.scene.destroy()
-        this.scene = null
+        // this.scene.destroy()
+        // this.scene = null
       }
       this.newOptions = { ...this.defaultOptions, ...this.options }
       this.initChart()
     },
     initChart() {
-      this.scene = new Scene({
-        id: this.containerId,
-        forceFit: true,
-        ...this.newOptions.chartProps
-      })
+      if (this.scene === null) {
+        this.scene = new Scene({
+          id: this.containerId,
+          forceFit: true,
+          ...this.newOptions.chartProps
+        })
+      }
 
       const nameOp = this.newOptions.fieldMap.name
       const valueOp = this.newOptions.fieldMap.value
       this.scene.on('loaded', () => {
-        new CountryLayer(this.scene, {
+        this.countryLayer = new CountryLayer(this.scene, {
           data: this.data,
           joinBy: ['NAME_CHN', nameOp],
           depth: 1,
