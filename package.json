@@ -1,7 +1,7 @@
 {
   "name": "p-charts",
   "description": "Chart components based on AntV G2",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "author": "silianpan <liu.pan@silianpan.cn>",
   "license": "MIT",
   "private": false,
