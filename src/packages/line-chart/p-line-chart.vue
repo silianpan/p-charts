@@ -63,7 +63,7 @@ export default {
           },
           label: {
             formatter: val => {
-              return val + valueUnitOp
+              return val + this.defaultOptions.valueUnit
             }
           }
         },
