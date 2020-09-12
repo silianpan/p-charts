@@ -43,6 +43,7 @@ export default {
         tooltipProps: {
           showTitle: false
         },
+        transformProps: [],
         // 图形半径
         radius: 0.7,
         // 图形颜色列表
@@ -120,6 +121,9 @@ export default {
           dimension: nameOp,
           as: 'percent'
         })
+        this.newOptions.transformProps.forEach(item => {
+          dv.transform(item)
+        })
         this.chart.changeData(dv)
       } else {
         this.initChart(this.data)
@@ -151,6 +155,10 @@ export default {
         field: valueOp,
         dimension: nameOp,
         as: 'percent'
+      })
+
+      this.newOptions.transformProps.forEach(item => {
+        dv.transform(item)
       })
 
       this.chart = new G2.Chart({

@@ -86,6 +86,7 @@ export default {
             }
           }
         },
+        transformProps: [],
         // 图形颜色列表
         colorList: [],
         // 组合字段（分组字段）
@@ -160,6 +161,9 @@ export default {
             return row
           }
         })
+        this.newOptions.transformProps.forEach(item => {
+          dv.transform(item)
+        })
         this.chart.changeData(dv)
       } else {
         this.initChart(this.data)
@@ -184,6 +188,10 @@ export default {
               : row[valueOp]
           return row
         }
+      })
+
+      this.newOptions.transformProps.forEach(item => {
+        dv.transform(item)
       })
 
       this.chart = new G2.Chart({
