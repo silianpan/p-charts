@@ -1,5 +1,5 @@
 <template>
-  <p-map :data="dataJson" :options="options" />
+  <p-map :data="adata" :options="options" />
 </template>
 
 <script>
@@ -7,7 +7,7 @@ import dataJson from './data/map1.json'
 export default {
   data() {
     return {
-      dataJson,
+      adata: [],
       options: {
         title: 'xxx区域分布',
         fieldMap: {
@@ -16,6 +16,11 @@ export default {
         }
       }
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.adata = dataJson
+    }, 5000)
   }
 }
 </script>

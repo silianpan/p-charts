@@ -83,7 +83,7 @@ export default {
     data: {
       handler(newVal, oldVal) {
         if (this.countryLayer !== null) {
-          this.countryLayer.setData(newVal)
+          this.countryLayer.updateData(newVal)
         }
       },
       deep: true
