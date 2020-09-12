@@ -1,7 +1,6 @@
 <!-- 柱状图 -->
 <template>
   <div>
-    <Spin v-if="loading" fix large></Spin>
     <p slot="title" class="analysis-card-title" @click="titleClick">
       {{ newOptions.title }}
     </p>
@@ -30,7 +29,6 @@ export default {
   },
   data() {
     return {
-      loading: false,
       chart: null,
       containerId: '',
       defaultOptions: {
@@ -128,7 +126,6 @@ export default {
       if (_.isEmpty(this.data)) {
         return
       }
-      this.loading = true
       try {
         if (this.chart !== null) {
           const nameOp = this.newOptions.fieldMap.name
@@ -170,10 +167,9 @@ export default {
         } else {
           this.initChart(this.data)
         }
-      } catch (error) {
-        this.loading = false
+      } catch (err) {
+        console.log('err', err)
       }
-      this.loading = false
     },
     initChart(data) {
       const nameOp = this.newOptions.fieldMap.name

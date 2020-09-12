@@ -124,7 +124,6 @@ export default {
       if (_.isEmpty(this.data)) {
         return
       }
-      this.loading = true
       try {
         if (this.chart !== null) {
           const valueOp = this.newOptions.fieldMap.value
@@ -151,9 +150,8 @@ export default {
           this.initChart(this.data)
         }
       } catch (err) {
-        console.log(err)
+        console.log('err', err)
       }
-      this.loading = false
     },
     initChart(data) {
       const timeOp = this.newOptions.fieldMap.time

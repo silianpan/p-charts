@@ -29,7 +29,7 @@ export default {
   },
   data() {
     return {
-      chart: null,
+      scene: null,
       containerId: '',
       newOptions: {},
       defaultOptions: {
@@ -61,9 +61,31 @@ export default {
   mounted() {
     this.initChart()
   },
+  watch: {
+    options: {
+      handler(newVal, oldVal) {
+        this.updateData()
+      },
+      deep: true
+    },
+    data: {
+      handler(newVal, oldVal) {
+        this.updateData()
+      },
+      deep: true
+    }
+  },
   methods: {
+    updateData() {
+      if (this.scene !== null) {
+        this.scene.destroy()
+        this.scene = null
+      }
+      this.newOptions = { ...this.defaultOptions, ...this.options }
+      this.initChart()
+    },
     initChart() {
-      const scene = new Scene({
+      this.scene = new Scene({
         id: this.containerId,
         forceFit: true,
         ...this.newOptions.chartProps
@@ -71,8 +93,8 @@ export default {
 
       const nameOp = this.newOptions.fieldMap.name
       const valueOp = this.newOptions.fieldMap.value
-      scene.on('loaded', () => {
-        new CountryLayer(scene, {
+      this.scene.on('loaded', () => {
+        new CountryLayer(this.scene, {
           data: this.data,
           joinBy: ['NAME_CHN', nameOp],
           depth: 1,

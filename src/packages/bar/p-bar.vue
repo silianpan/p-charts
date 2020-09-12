@@ -1,7 +1,6 @@
 <!-- 条形图 -->
 <template>
   <div>
-    <Spin v-if="loading" fix large></Spin>
     <p slot="title" class="analysis-card-title" @click="titleClick">
       {{ newOptions.title }}
     </p>
@@ -30,7 +29,6 @@ export default {
   },
   data() {
     return {
-      loading: false,
       chart: null,
       containerId: '',
       defaultOptions: {
@@ -143,7 +141,6 @@ export default {
       if (_.isEmpty(this.data)) {
         return
       }
-      this.loading = true
       if (this.chart !== null) {
         const timeOp = this.newOptions.fieldMap.time
         const valueOp = this.newOptions.fieldMap.value
@@ -168,7 +165,6 @@ export default {
       } else {
         this.initChart(this.data)
       }
-      this.loading = false
     },
     initChart(data) {
       const valueOp = this.newOptions.fieldMap.value
