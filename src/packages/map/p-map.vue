@@ -56,6 +56,7 @@ export default {
   },
   created() {
     this.containerId = `container${CommonUtil.uuid()}`
+    this.newOptions = { ...this.defaultOptions, ...this.options }
   },
   mounted() {
     this.updateData()
@@ -82,6 +83,12 @@ export default {
   methods: {
     updateData() {
       if (this.scene !== null) {
+        const layers = this.scene.getLayers()
+        if (layers !== null && layers !== undefined) {
+          layers.forEach(item => {
+            this.scene.removeLayer(item)
+          })
+        }
         this.scene.destroy()
         this.scene = null
       }
