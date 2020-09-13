@@ -4,7 +4,7 @@
 
 Chart components based on AntV G2
 
-[![doc][doc-image]][doc-url] [![Travis status][travis-image]][travis-url] [![antv-g2-deps][antv-g2-image]][antv-g2-url] [![antv-l7-deps][antv-l7-image]][antv-l7-url] [![NPM version][npm-image]][npm-url]
+[![doc][doc-image]][doc-url] [![gitee][gitee-image]][gitee-url] [![Travis status][travis-image]][travis-url] [![antv-g2-deps][antv-g2-image]][antv-g2-url] [![antv-l7-deps][antv-l7-image]][antv-l7-url] [![NPM version][npm-image]][npm-url]
 
 [![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][vue-url] [![GitHub license][license-image]][github-url]
 
@@ -24,6 +24,8 @@ Chart components based on AntV G2
 [license-image]: https://img.shields.io/github/license/silianpan/p-charts
 [doc-image]: https://img.shields.io/badge/document-latest-blue
 [doc-url]: http://silianpan.cn/p-charts
+[gitee-image]: https://gitee.com/twofloor/p-charts/badge/star.svg?theme=dark
+[gitee-url]: https://gitee.com/twofloor/p-charts/stargazers
 
 </div>
 
@@ -32,6 +34,8 @@ Chart components based on AntV G2
 [Blog](http://silianpan.cn/index.php/2020/08/29/p-charts/)
 
 [Examples](http://silianpan.cn/p-charts)
+
+[Gitee](https://gitee.com/twofloor/p-charts)
 
 ## Getting Started
 
