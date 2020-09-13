@@ -4,7 +4,7 @@
 
 Chart components based on AntV G2
 
-[![Travis status][travis-image]][travis-url] [![antv-g2-deps][antv-g2-image]][antv-g2-url] [![antv-l7-deps][antv-l7-image]][antv-l7-url] [![NPM version][npm-image]][npm-url]
+[![doc][doc-image]][doc-url] [![Travis status][travis-image]][travis-url] [![antv-g2-deps][antv-g2-image]][antv-g2-url] [![antv-l7-deps][antv-l7-image]][antv-l7-url] [![NPM version][npm-image]][npm-url]
 
 [![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][vue-url] [![GitHub license][license-image]][github-url]
 
@@ -22,6 +22,8 @@ Chart components based on AntV G2
 [github-top-language-image]: https://img.shields.io/github/languages/top/silianpan/p-charts?color=%234fc08d
 [vue-url]: https://vuejs.org/
 [license-image]: https://img.shields.io/github/license/silianpan/p-charts
+[doc-image]: https://img.shields.io/badge/document-latest-blue
+[doc-url]: http://silianpan.cn/p-charts
 
 </div>
 
