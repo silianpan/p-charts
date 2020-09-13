@@ -9,7 +9,7 @@ export default {
     return {
       adata: [],
       options: {
-        title: 'xxx区域分布',
+        title: 'demo-map1-中国区域分布',
         fieldMap: {
           name: 'province',
           value: 'num'

@@ -15,7 +15,7 @@ export default {
     return {
       barJson,
       options: {
-        title: `税收收入分布情况-决算数（单位：万元）`,
+        title: `demo-bar1-税收收入分布情况-决算数（单位：万元）`,
         fieldMap: {
           time: 'year',
           name: 'budgetSubject',

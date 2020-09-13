@@ -15,7 +15,7 @@ export default {
     return {
       PieJson,
       options: {
-        title: '收入总计、支出总计占比（万元）',
+        title: 'demo-pie2-收入总计、支出总计占比（万元）',
         colorList: [
           '#2593fc',
           '#38c060',

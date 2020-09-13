@@ -15,7 +15,7 @@ export default {
     return {
       columnJson,
       options: {
-        title: '预算支出情况（万元）',
+        title: 'demo-column2-预算支出情况（万元）',
         foldFields: ['subtotal', 'outBase', 'outProject'],
         foldFieldsRename: {
           subtotal: '小计',

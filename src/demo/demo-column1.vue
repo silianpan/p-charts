@@ -15,7 +15,7 @@ export default {
     return {
       columnJson,
       options: {
-        title: `支出分布情况-预算数（单位：万元）`,
+        title: `demo-column1-支出分布情况-预算数（单位：万元）`,
         fieldMap: {
           time: 'year',
           name: 'budgetSubject',

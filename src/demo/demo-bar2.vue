@@ -15,7 +15,7 @@ export default {
     return {
       barJson,
       options: {
-        title: `非税收入年度对比情况-预算数（单位：万元）`,
+        title: `demo-bar2-非税收入年度对比情况-预算数（单位：万元）`,
         fieldMap: {
           time: 'year',
           name: 'budgetSubject',

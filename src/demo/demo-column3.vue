@@ -15,7 +15,7 @@ export default {
     return {
       columnJson,
       options: {
-        title: '预算支出部门对比（万元）',
+        title: 'demo-column3-预算支出部门对比（万元）',
         groupField: 'time',
         itemField: 'name',
         fieldMap: {

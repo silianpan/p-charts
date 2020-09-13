@@ -13,7 +13,7 @@ export default {
     return {
       lineChartJson,
       options: {
-        title: '本年收入合计、本年支出合计、上年结转、结转下年占比趋势（万元）',
+        title: 'demo-line-chart2-本年收入合计、本年支出合计、上年结转、结转下年占比趋势（万元）',
         groupField: 'time',
         itemField: 'name',
         fieldMap: {

@@ -13,7 +13,7 @@ export default {
     return {
       lineChartJson,
       options: {
-        title: `总收入和总支出年度对比趋势-预算数（单位：万元）`,
+        title: `demo-line-chart1-总收入和总支出年度对比趋势-预算数（单位：万元）`,
         fieldMap: {
           time: 'year',
           name: 'budgetSubject',

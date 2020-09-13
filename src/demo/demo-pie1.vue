@@ -21,7 +21,7 @@ export default {
           // 统计指标，可以更换
           value: 'budgetNum'
         },
-        title: `总收入和总支出占比情况-预算数（单位：万元）`,
+        title: `demo-pie1-总收入和总支出占比情况-预算数（单位：万元）`,
         colorList: ['#1890ff', '#37c661']
       }
     }
