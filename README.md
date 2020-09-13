@@ -2,11 +2,21 @@
 
 > Chart components based on AntV G2
 
-[![CircleCI status][circleci-image]][circleci-url] [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+[![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][vue-url] [![Travis status][travis-image]][travis-url] [![antv-g2-deps][antv-g2-image]][antv-g2-url] [![antv-l7-deps][antv-l7-image]][antv-l7-url] [![NPM version][npm-image]][npm-url]
 
-[![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![FOSSA Status][fossa-image]][fossa-url] [![Issues need help][help-wanted-image]][help-wanted-url]
-
-[![Follow Twitter][twitter-image]][twitter-url] [![Gitter][gitter-english-image]][gitter-english-url] [![Gitter][gitter-chinese-image]][gitter-chinese-url] [![[SemVer stability]][semver-stability-image]][semver-stability-url]
+[travis-image]: https://img.shields.io/travis/silianpan/p-charts
+[travis-url]: https://travis-ci.org/github/silianpan/p-charts
+[antv-g2-image]: https://img.shields.io/badge/%40antv%2Fg2-v3.5.17-%23873bf4
+[antv-g2-url]: https://g2-v3.antv.vision/zh/
+[antv-l7-image]: https://img.shields.io/badge/%40antv%2Fl7-latest-4fd431
+[antv-l7-url]: https://l7.antv.vision/zh
+[npm-image]: https://img.shields.io/npm/v/p-charts
+[npm-url]: https://www.npmjs.com/package/p-charts
+[github-starts-image]: https://img.shields.io/github/stars/silianpan/p-charts?style=social
+[github-url]: https://github.com/silianpan/p-charts
+[github-commit-activity-url]: https://img.shields.io/github/commit-activity/m/silianpan/p-charts
+[github-top-language-image]: https://img.shields.io/github/languages/top/silianpan/p-charts?color=%234fc08d
+[vue-url]: https://vuejs.org/
 
 [Document](https://juejin.im/post/6866330015970099208/)
 
