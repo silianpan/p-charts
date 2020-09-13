@@ -1,10 +1,12 @@
-# p-charts
+<h1 align="center">[p-charts](http://silianpan.cn/p-charts/)</h1>
 
-> Chart components based on AntV G2
+<div align="center">
+
+Chart components based on AntV G2
 
 [![Travis status][travis-image]][travis-url] [![antv-g2-deps][antv-g2-image]][antv-g2-url] [![antv-l7-deps][antv-l7-image]][antv-l7-url] [![NPM version][npm-image]][npm-url]
 
-[![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][vue-url] 
+[![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][vue-url] [![GitHub license][license-image]][github-url]
 
 [travis-image]: https://img.shields.io/travis/silianpan/p-charts
 [travis-url]: https://travis-ci.org/github/silianpan/p-charts
@@ -19,6 +21,9 @@
 [github-commit-activity-url]: https://img.shields.io/github/commit-activity/m/silianpan/p-charts
 [github-top-language-image]: https://img.shields.io/github/languages/top/silianpan/p-charts?color=%234fc08d
 [vue-url]: https://vuejs.org/
+[license-image]: https://img.shields.io/github/license/silianpan/p-charts
+
+</div>
 
 [Document](https://juejin.im/post/6866330015970099208/)
 
