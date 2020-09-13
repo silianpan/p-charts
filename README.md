@@ -1,4 +1,4 @@
-<h1 align="center">[p-charts](http://silianpan.cn/p-charts/)</h1>
+<h1 align="center">p-charts</h1>
 
 <div align="center">
 
