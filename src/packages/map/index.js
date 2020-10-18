@@ -7,6 +7,6 @@
 
 import PMap from './p-map'
 
-PMap.install = Vue => Vue.component(PMap.name, PMap)
+PMap.install = (app) => app.component(PMap.name, PMap)
 
 export default PMap

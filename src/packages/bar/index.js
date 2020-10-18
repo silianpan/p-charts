@@ -7,6 +7,6 @@
 
 import PBar from './p-bar'
 
-PBar.install = Vue => Vue.component(PBar.name, PBar)
+PBar.install = (app) => app.component(PBar.name, PBar)
 
 export default PBar

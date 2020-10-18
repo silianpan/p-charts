@@ -7,6 +7,6 @@
 
 import PLineChart from './p-line-chart'
 
-PLineChart.install = Vue => Vue.component(PLineChart.name, PLineChart)
+PLineChart.install = (app) => app.component(PLineChart.name, PLineChart)
 
 export default PLineChart

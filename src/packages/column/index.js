@@ -7,6 +7,6 @@
 
 import PColumn from './p-column'
 
-PColumn.install = Vue => Vue.component(PColumn.name, PColumn)
+PColumn.install = (app) => app.component(PColumn.name, PColumn)
 
 export default PColumn

@@ -7,9 +7,9 @@ import './assets/common.css'
 
 const components = [PPie, PBar, PColumn, PLineChart, PMap]
 
-const install = function(Vue, opts = {}) {
-  components.map(component => {
-    Vue.component(component.name, component)
+const install = function (app, opts = {}) {
+  components.map((component) => {
+    app.component(component.name, component)
   })
 }
 
@@ -20,8 +20,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  PPie,
-  PBar,
-  PColumn,
-  PLineChart
+  // PPie,
+  // PBar,
+  // PColumn,
+  // PLineChart,
 }

@@ -1,9 +1,7 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import PCharts from './index'
-Vue.use(PCharts)
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+const app = createApp(App)
+app.use(PCharts)
+app.mount('#app')
