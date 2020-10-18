@@ -20,8 +20,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  // PPie,
-  // PBar,
-  // PColumn,
-  // PLineChart,
+  PPie,
+  PBar,
+  PColumn,
+  PLineChart,
 }
